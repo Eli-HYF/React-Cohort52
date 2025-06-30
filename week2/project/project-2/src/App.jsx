@@ -20,18 +20,24 @@ function App() {
 
   useEffect(() => {
     setLoading(true);
+    setError(false);
+
     const url = selectedCategory
       ? `https://fakestoreapi.com/products/category/${selectedCategory}`
       : 'https://fakestoreapi.com/products';
 
     fetch(url)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        return res.json();
+      })
       .then((data) => {
         setProducts(data);
         setLoading(false);
       })
       .catch(() => {
         setError(true);
+        setProducts([]);
         setLoading(false);
       });
   }, [selectedCategory]);
