@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.button {
+  border: 1px solid black;
+  padding: 8px 12px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.buttonSelected {
+  background-color: black;
+  color: white;
+}

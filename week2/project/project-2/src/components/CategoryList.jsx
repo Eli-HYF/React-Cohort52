@@ -1,20 +1,20 @@
+import styles from './CategoryList.module.css';
+
 function CategoryList({ categories, selectedCategory, onSelectCategory }) {
   return (
-    <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '20px' }}>
-      {categories.map((cat, index) => (
-        <button
-          key={index}
-          onClick={() => onSelectCategory(cat)}
-          style={{
-            background: selectedCategory === cat ? 'black' : 'white',
-            color: selectedCategory === cat ? 'white' : 'black',
-            border: '1px solid black',
-            padding: '8px 12px',
-          }}
-        >
-          {cat}
-        </button>
-      ))}
+    <div className={styles.wrapper}>
+      {categories.map((category, index) => {
+        const isSelected = selectedCategory === category;
+        return (
+          <button
+            key={index}
+            onClick={() => onSelectCategory(category)}
+            className={`${styles.button} ${isSelected ? styles.buttonSelected : ''}`}
+          >
+            {category}
+          </button>
+        );
+      })}
     </div>
   );
 }

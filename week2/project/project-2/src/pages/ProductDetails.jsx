@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import styles from './ProductDetails.module.css';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -24,9 +25,9 @@ function ProductDetails() {
   if (error || !product) return <p>Failed to load product.</p>;
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className={styles.container}>
       <h2>{product.title}</h2>
-      <img src={product.image} alt={product.title} width="200px" />
+      <img src={product.image} alt={product.title} className={styles.image} />
       <p>{product.description}</p>
       <strong>${product.price}</strong>
     </div>

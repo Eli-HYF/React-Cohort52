@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
+import styles from './ProductCard.module.css';
 
 function ProductCard({ product }) {
   return (
-    <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-      <div style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '8px' }}>
+    <Link to={`/product/${product.id}`} className={styles.link}>
+      <div className={styles.card}>
         <img
           src={product.image}
           alt={product.title}
-          width="100%"
-          height="200px"
-          style={{ objectFit: 'contain' }}
+          className={styles.image}
         />
         <h3>{product.title}</h3>
         <p>${product.price}</p>
