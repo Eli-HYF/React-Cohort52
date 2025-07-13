@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ onHomeClick }) {
   return (
     <nav
       style={{
@@ -9,7 +9,7 @@ function Navbar() {
         marginBottom: "20px", 
       }}
     >
-      <Link to="/" style={{ color: "white", marginRight: "15px", textDecoration: "none" }}>
+      <Link to="/" onClick={onHomeClick} style={{ color: "white", marginRight: "15px", textDecoration: "none" }}>
         Home
       </Link>
       <Link to="/favourites" style={{ color: "white", textDecoration: "none" }}>

@@ -8,9 +8,13 @@ import { useState } from "react";
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
+  const resetFilters = () => {
+    setSelectedCategory(null);
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar onHomeClick={resetFilters} />
       <Routes>
         <Route
           path="/"
